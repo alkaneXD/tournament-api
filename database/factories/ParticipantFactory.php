@@ -24,6 +24,7 @@ class ParticipantFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
+            'tournament_id' => \App\Models\Tournament::factory(),
         ];
     }
 }

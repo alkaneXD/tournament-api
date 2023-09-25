@@ -13,7 +13,12 @@ class Tournament extends Model
     use Searchable;
     use SoftDeletes;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'type'];
 
     protected $searchableFields = ['*'];
+
+    public function groups()
+    {
+        return $this->hasMany(Group::class);
+    }
 }

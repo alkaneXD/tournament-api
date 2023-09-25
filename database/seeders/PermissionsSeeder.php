@@ -27,23 +27,17 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'update groups']);
         Permission::create(['name' => 'delete groups']);
 
-        Permission::create(['name' => 'list participants']);
-        Permission::create(['name' => 'view participants']);
-        Permission::create(['name' => 'create participants']);
-        Permission::create(['name' => 'update participants']);
-        Permission::create(['name' => 'delete participants']);
+        Permission::create(['name' => 'list players']);
+        Permission::create(['name' => 'view players']);
+        Permission::create(['name' => 'create players']);
+        Permission::create(['name' => 'update players']);
+        Permission::create(['name' => 'delete players']);
 
         Permission::create(['name' => 'list rounds']);
         Permission::create(['name' => 'view rounds']);
         Permission::create(['name' => 'create rounds']);
         Permission::create(['name' => 'update rounds']);
         Permission::create(['name' => 'delete rounds']);
-
-        Permission::create(['name' => 'list stages']);
-        Permission::create(['name' => 'view stages']);
-        Permission::create(['name' => 'create stages']);
-        Permission::create(['name' => 'update stages']);
-        Permission::create(['name' => 'delete stages']);
 
         Permission::create(['name' => 'list tournaments']);
         Permission::create(['name' => 'view tournaments']);

@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Stage;
+use App\Models\Player;
 use Illuminate\Database\Seeder;
 
-class StageSeeder extends Seeder
+class PlayerSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Stage::factory()
+        Player::factory()
             ->count(5)
             ->create();
     }

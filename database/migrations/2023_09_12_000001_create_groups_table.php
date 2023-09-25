@@ -12,10 +12,9 @@ return new class extends Migration {
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('stage_id');
-            $table->unsignedInteger('number')->nullable();
+            $table->unsignedBigInteger('tournament_id');
+            $table->string('name')->nullable();
 
-            $table->timestamps();
             $table->softDeletes();
         });
     }

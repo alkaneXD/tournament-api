@@ -12,12 +12,10 @@ return new class extends Migration {
     {
         Schema::create('rounds', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('stage_id');
             $table->unsignedBigInteger('group_id')->nullable();
             $table->unsignedInteger('number')->nullable();
             $table->unsignedBigInteger('matches_count')->nullable();
 
-            $table->timestamps();
             $table->softDeletes();
         });
     }

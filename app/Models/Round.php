@@ -13,7 +13,19 @@ class Round extends Model
     use Searchable;
     use SoftDeletes;
 
-    protected $fillable = ['stage_id', 'group_id', 'number', 'matches_count'];
+    protected $fillable = ['group_id', 'number', 'matches_count'];
 
     protected $searchableFields = ['*'];
+
+    public $timestamps = false;
+
+    public function group()
+    {
+        return $this->belongsTo(Group::class);
+    }
+
+    public function fights()
+    {
+        return $this->hasMany(Fight::class);
+    }
 }

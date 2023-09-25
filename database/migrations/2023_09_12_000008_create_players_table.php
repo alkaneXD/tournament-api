@@ -10,13 +10,10 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('stages', function (Blueprint $table) {
+        Schema::create('players', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('tournament_id');
-            $table->string('name');
-            $table->string('type');
+            $table->string('name')->nullable();
 
-            $table->timestamps();
             $table->softDeletes();
         });
     }
@@ -26,6 +23,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('stages');
+        Schema::dropIfExists('players');
     }
 };

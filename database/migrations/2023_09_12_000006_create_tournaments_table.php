@@ -13,6 +13,7 @@ return new class extends Migration {
         Schema::create('tournaments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->enum('type', ['single_elimination', 'double_elimination']);
 
             $table->timestamps();
             $table->softDeletes();

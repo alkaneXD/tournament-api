@@ -22,9 +22,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(FightSeeder::class);
         $this->call(GroupSeeder::class);
-        $this->call(ParticipantSeeder::class);
+        $this->call(PlayerSeeder::class);
         $this->call(RoundSeeder::class);
-        $this->call(StageSeeder::class);
         $this->call(TournamentSeeder::class);
         $this->call(UserSeeder::class);
     }

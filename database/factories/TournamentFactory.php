@@ -24,6 +24,7 @@ class TournamentFactory extends Factory
     {
         return [
             'name' => $this->faker->text(255),
+            'type' => 'single_elimination',
         ];
     }
 }

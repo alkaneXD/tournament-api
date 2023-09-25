@@ -16,4 +16,11 @@ class Participant extends Model
     protected $fillable = ['tournament_id', 'name'];
 
     protected $searchableFields = ['*'];
+
+    public $timestamps = false;
+
+    public function tournament()
+    {
+        return $this->belongsTo(Tournament::class);
+    }
 }

@@ -19,7 +19,7 @@ use App\Http\Controllers\Api\PermissionController;
 */
 
 Route::post('/match-making', [MatchMakingController::class, 'generateMatches']);
-
+Route::get('/get-matches/{id}', [MatchMakingController::class, 'getMatches']);
 Route::post('/login', [AuthController::class, 'login'])->name('api.login');
 
 Route::middleware('auth:sanctum')

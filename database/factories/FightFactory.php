@@ -23,11 +23,11 @@ class FightFactory extends Factory
     public function definition(): array
     {
         return [
-            'opponent1_score' => $this->faker->randomNumber(),
-            'opponent1_result' => $this->faker->text(255),
-            'opponent2_score' => $this->faker->randomNumber(),
-            'opponent2_result' => $this->faker->text(255),
+            'player_one_id' => $this->faker->randomNumber(),
+            'player_two_id' => $this->faker->randomNumber(),
+            'winner_id' => $this->faker->randomNumber(),
             'bracket_position' => $this->faker->randomNumber(),
+            'round_id' => \App\Models\Round::factory(),
         ];
     }
 }

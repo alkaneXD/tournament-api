@@ -23,7 +23,8 @@ class GroupFactory extends Factory
     public function definition(): array
     {
         return [
-            'number' => $this->faker->randomNumber(),
+            'name' => $this->faker->text(255),
+            'tournament_id' => \App\Models\Tournament::factory(),
         ];
     }
 }

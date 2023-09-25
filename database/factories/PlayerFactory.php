@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Stage;
+use App\Models\Player;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class StageFactory extends Factory
+class PlayerFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Stage::class;
+    protected $model = Player::class;
 
     /**
      * Define the model's default state.
@@ -24,7 +24,6 @@ class StageFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'type' => $this->faker->word(),
         ];
     }
 }

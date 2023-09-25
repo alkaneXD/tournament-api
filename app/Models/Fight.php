@@ -14,17 +14,19 @@ class Fight extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'stage_id',
-        'group_id',
         'round_id',
-        'opponent1_id',
-        'opponent2_id',
-        'opponent1_score',
-        'opponent1_result',
-        'opponent2_score',
-        'opponent2_result',
+        'player_one_id',
+        'player_two_id',
+        'winner_id',
         'bracket_position',
     ];
 
     protected $searchableFields = ['*'];
+
+    public $timestamps = false;
+
+    public function round()
+    {
+        return $this->belongsTo(Round::class);
+    }
 }

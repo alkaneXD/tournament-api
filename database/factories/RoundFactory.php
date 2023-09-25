@@ -25,6 +25,7 @@ class RoundFactory extends Factory
         return [
             'number' => $this->faker->randomNumber(),
             'matches_count' => $this->faker->randomNumber(),
+            'group_id' => \App\Models\Group::factory(),
         ];
     }
 }

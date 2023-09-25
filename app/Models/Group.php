@@ -13,7 +13,19 @@ class Group extends Model
     use Searchable;
     use SoftDeletes;
 
-    protected $fillable = ['stage_id', 'number'];
+    protected $fillable = ['tournament_id', 'name'];
 
     protected $searchableFields = ['*'];
+
+    public $timestamps = false;
+
+    public function rounds()
+    {
+        return $this->hasMany(Round::class);
+    }
+
+    public function tournament()
+    {
+        return $this->belongsTo(Tournament::class);
+    }
 }

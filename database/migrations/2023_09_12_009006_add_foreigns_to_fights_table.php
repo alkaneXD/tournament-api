@@ -12,37 +12,9 @@ return new class extends Migration {
     {
         Schema::table('fights', function (Blueprint $table) {
             $table
-                ->foreign('stage_id')
-                ->references('id')
-                ->on('stages')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
-
-            $table
-                ->foreign('group_id')
-                ->references('id')
-                ->on('groups')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
-
-            $table
                 ->foreign('round_id')
                 ->references('id')
                 ->on('rounds')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
-
-            $table
-                ->foreign('opponent1_id')
-                ->references('id')
-                ->on('participants')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
-
-            $table
-                ->foreign('opponent2_id')
-                ->references('id')
-                ->on('participants')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
         });
@@ -54,11 +26,7 @@ return new class extends Migration {
     public function down(): void
     {
         Schema::table('fights', function (Blueprint $table) {
-            $table->dropForeign(['stage_id']);
-            $table->dropForeign(['group_id']);
             $table->dropForeign(['round_id']);
-            $table->dropForeign(['opponent1_id']);
-            $table->dropForeign(['opponent2_id']);
         });
     }
 };

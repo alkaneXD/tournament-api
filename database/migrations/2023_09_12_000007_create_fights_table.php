@@ -12,18 +12,12 @@ return new class extends Migration {
     {
         Schema::create('fights', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('stage_id');
-            $table->unsignedBigInteger('group_id')->nullable();
-            $table->unsignedBigInteger('round_id')->nullable();
-            $table->unsignedBigInteger('opponent1_id')->nullable();
-            $table->unsignedBigInteger('opponent2_id')->nullable();
-            $table->unsignedBigInteger('opponent1_score')->nullable();
-            $table->string('opponent1_result')->nullable();
-            $table->unsignedBigInteger('opponent2_score')->nullable();
-            $table->string('opponent2_result')->nullable();
-            $table->unsignedInteger('bracket_position')->nullable();
+            $table->unsignedBigInteger('round_id');
+            $table->unsignedBigInteger('player_one_id')->nullable();
+            $table->unsignedBigInteger('player_two_id')->nullable();
+            $table->unsignedBigInteger('winner_id')->nullable();
+            $table->unsignedBigInteger('bracket_position')->nullable();
 
-            $table->timestamps();
             $table->softDeletes();
         });
     }
