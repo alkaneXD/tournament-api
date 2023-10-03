@@ -6,6 +6,8 @@ use App\Models\Scopes\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Round extends Model
 {
@@ -19,12 +21,12 @@ class Round extends Model
 
     public $timestamps = false;
 
-    public function group()
+    public function group(): BelongsTo
     {
         return $this->belongsTo(Group::class);
     }
 
-    public function fights()
+    public function fights(): HasMany
     {
         return $this->hasMany(Fight::class);
     }

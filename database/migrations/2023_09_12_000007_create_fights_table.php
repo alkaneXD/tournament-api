@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->unsignedBigInteger('player_two_id')->nullable();
             $table->unsignedBigInteger('winner_id')->nullable();
             $table->unsignedBigInteger('bracket_position')->nullable();
-
+            $table->unsignedBigInteger('next_fight_id')->nullable();
             $table->softDeletes();
         });
     }

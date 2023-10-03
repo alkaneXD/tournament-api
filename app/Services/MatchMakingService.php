@@ -52,7 +52,7 @@ class MatchMakingService
 
             $matchesCount = $playersCount;
             $matchNumber = 1;
-
+            $fightIds = [];
             for ($roundNumber = 1; $roundNumber <= $numRounds; $roundNumber++) {
                 $matchesCount /= 2;
                 $matchesPerRound[$roundNumber] = $matchesCount;
@@ -62,7 +62,7 @@ class MatchMakingService
                     'number' => $roundNumber,
                     'matches_count' => $matchesCount,
                 ]);
-            
+                
                 for ($i = 0; $i < $matchesCount; $i++) {
                     $match = Fight::create([
                         'round_id' => $round->id,
@@ -72,16 +72,37 @@ class MatchMakingService
                     ]);
             
                     $matchNumber++;
+                    $fightIds[] = $match->id;
                     $roundMatches[] = $match;
                 }
-            }
 
-            $matches[] = $roundMatches;
+                
+            }
+            
+            $createdMatches = Fight::whereIn('id', $fightIds)->orderBy('id', 'asc')->get();
+
+            $loopIndex = 0;
+            for ($i = 0; $i < count($createdMatches); $i += 2) {
+                $match_one = $createdMatches[$i];
+                $match_two = isset($createdMatches[$i + 1]) ? $createdMatches[$i + 1] : null;
+                
+                $nextFight = Fight::whereIn('id', $fightIds)->whereNull(['player_one_id', 'player_two_id'])->skip($loopIndex)->orderBy('id', 'asc')->first();
+                
+                if($match_one) {
+                    $match_one->next_fight_id = $nextFight->id ?? null;
+                    $match_one->save();
+                }
+                if($match_two) {
+                    $match_two->next_fight_id = $nextFight->id ?? null;
+                    $match_two->save();
+                }
+
+                $loopIndex++;
+            }
         }
     
-        return $matches;
+        return $createdMatches;
     }
-    
 
     private static function generateDoubleEliminationMatches($players, $tournament)
     {

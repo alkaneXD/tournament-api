@@ -19,6 +19,7 @@ class Fight extends Model
         'player_two_id',
         'winner_id',
         'bracket_position',
+        'next_fight_id'
     ];
 
     protected $searchableFields = ['*'];
